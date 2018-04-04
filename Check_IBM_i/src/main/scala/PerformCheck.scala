@@ -27,10 +27,13 @@ class CheckMethod {
     val conf = ConfigFactory.load
     val iACS = conf.getString("conf.iACS")
     val ibm_system = conf.getString("conf.ibm_system")
-    val services_to_test = conf.getString("conf.services_to_test")
+    val services_to_test =
+      if (conf.getString("conf.services_to_test") != "")
+        " /PORTS=" + conf.getString("conf.services_to_test")
+        else
+        ""
 
-
-    val result = iACS + " /plugin=ping /system=" + ibm_system + " /PORTS=" + services_to_test !!
+    val result = iACS + " /plugin=ping /system=" + ibm_system + services_to_test !!
 
 
     if (!SystemUp(result.split("\r\n").toList)) {
