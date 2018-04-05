@@ -8,7 +8,7 @@
   */
 
 import com.typesafe.config.ConfigFactory
-// see https://gist.github.com/mariussoutier/3436111 for mail.scala
+// see https://gist.github.com/Justin-E-Taylor/36eac91daa3f588c2a60c0a066fee79c for mail.scala
 import mail._
 
 import scala.collection.JavaConverters
